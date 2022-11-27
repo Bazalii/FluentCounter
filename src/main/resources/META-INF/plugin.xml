@@ -24,4 +24,12 @@
     <extensions defaultExtensionNs="com.intellij">
 
     </extensions>
+    <actions>
+        <action id="userInterface.actions.CountLinesAction" class="userInterface.actions.CountLinesAction"
+                text="Count Lines"
+                description="Counts files lines in provided folder">
+            <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="ToolsMenu"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl L"/>
+        </action>
+    </actions>
 </idea-plugin>
