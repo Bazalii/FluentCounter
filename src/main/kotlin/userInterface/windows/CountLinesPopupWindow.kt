@@ -30,4 +30,8 @@ class CountLinesPopupWindow(project: Project?) : DialogWrapper(project) {
     override fun createCenterPanel(): JComponent? {
         return countLinesPanel
     }
+
+    override fun createSouthPanel(): JComponent? {
+        return null
+    }
 }
