@@ -22,7 +22,7 @@ class LinesCounter {
                     var extensionResult = result.find { element -> element.extension == file.extension }
 
                     if (extensionResult == null) {
-                        val newExtensionCountResult = CountResult(extension = file.extension!!, 0)
+                        val newExtensionCountResult = CountResult(file.extension!!, 0)
                         result.add(newExtensionCountResult)
                         extensionResult = newExtensionCountResult
                     }
@@ -34,11 +34,21 @@ class LinesCounter {
                             extensionResult.count += 1
                         }
                     }
+
+                    if (fileInformation.isNotEmpty()) {
+                        extensionResult.count += 1
+                    }
                 }
 
                 return true
             }
         })
+
+        for (extension in extensions) {
+            if (!result.any { element -> element.extension == extension}) {
+                result.add(CountResult(extension, 0))
+            }
+        }
 
         return result
     }
